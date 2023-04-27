@@ -3,7 +3,7 @@ import styles from '@/styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Headline(props) {
+export function Headline(props) {
   return (
     <p>
       Page Get started by editing&nbsp;

@@ -1,4 +1,4 @@
-import styles from '@/styles/Home.module.css'
+import styles from './Menus.module.css'
 
 export function Menus() {
   return (

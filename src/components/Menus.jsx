@@ -3,22 +3,22 @@ import styles from './Menus.module.css'
 const ITEMS = [
   {
     href: 'https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app',
-    title: ['DocsIndex', <span>-&gt;</span>],
+    title: ['DocsIndex', <span key='docs'>-&gt;</span>],
     description: 'Find in-depth information about Next.js features and&nbsp;API.'
   },
   {
     href: 'https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app',
-    title: ['Learn', <span>-&gt;</span>],
+    title: ['Learn', <span key='learn'>-&gt;</span>],
     description: 'Learn about Next.js in an interactive course with&nbsp;quizzes!'
   },
   {
     href: 'https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app',
-    title: ['Templates', <span>-&gt;</span>],
+    title: ['Templates', <span key='templates'>-&gt;</span>],
     description: 'Discover and deploy boilerplate example Next.js&nbsp;projects.'
   },
   {
     href: 'https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app',
-    title: ['Deploy', <span>-&gt;</span>],
+    title: ['Deploy', <span key='deploy'>-&gt;</span>],
     description: 'Instantly deploy your Next.js site to a shareable URLwith&nbsp;Vercel.'
   },
 ];

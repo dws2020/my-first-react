@@ -1,65 +1,51 @@
 import styles from './Menus.module.css'
 
+const ITEMS = [
+  {
+    href: 'https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app',
+    title: ['DocsIndex', <span>-&gt;</span>],
+    description: 'Find in-depth information about Next.js features and&nbsp;API.'
+  },
+  {
+    href: 'https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app',
+    title: ['Learn', <span>-&gt;</span>],
+    description: 'Learn about Next.js in an interactive course with&nbsp;quizzes!'
+  },
+  {
+    href: 'https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app',
+    title: ['Templates', <span>-&gt;</span>],
+    description: 'Discover and deploy boilerplate example Next.js&nbsp;projects.'
+  },
+  {
+    href: 'https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app',
+    title: ['Deploy', <span>-&gt;</span>],
+    description: 'Instantly deploy your Next.js site to a shareable URLwith&nbsp;Vercel.'
+  },
+];
+//　JSXについてjsx-gotchas.htmlのドキュメントを参照する
+
 export function Menus() {
   return (
     <>
       <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            DocsIndex <span>-&gt;</span>
-          </h2>
-          <p>
-            Find in-depth information about Next.js features and&nbsp;API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL
-            with&nbsp;Vercel.
-          </p>
-        </a>
+        {ITEMS.map(item => {
+          return (
+            <a
+              key={item.href} // uniqueキーがないといけない
+              href={item.href}
+              className={styles.card}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h2>
+                {item.title}
+              </h2>
+              <p>
+                {item.description}
+              </p>
+            </a>
+          )
+        })}
       </div>
     </>
   )

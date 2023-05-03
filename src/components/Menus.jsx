@@ -1,4 +1,4 @@
-import styles from '@/Menus.module.css'
+import styles from '@/components/Menus.module.css'
 
 const ITEMS = [
   {

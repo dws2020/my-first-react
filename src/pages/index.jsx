@@ -2,7 +2,7 @@ import Head       from 'next/head'
 import { Inter }  from 'next/font/google'
 import { Main }   from '@/components/Main'
 import { Header } from '@/components/Header'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { tv } from 'tailwind-variants'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -12,9 +12,13 @@ const center = tv({
 });
 
 export default function Home() {
-  const handleClick = (e) => {
-    setCount(count => count + 1);
-  };
+  const [count, setCount] = useState(1);
+
+  const handleClick = useCallback(() => {
+    if (count < 10) {
+      setCount(count => count + 1);
+    }
+  }, [count]);
 
   useEffect(() => {
     // mount時の処理
@@ -25,8 +29,6 @@ export default function Home() {
       document.body.style.backgroundColor = '';
     });
   }, []);
-
-  const [count, setCount] = useState(1);
 
   return (
     <div>

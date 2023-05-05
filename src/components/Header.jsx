@@ -2,7 +2,7 @@ import Link from "next/link";
 import { tv } from 'tailwind-variants';
 
 const header = tv({
-  base: "w-full border-solid divide-slate-700",
+  base: "w-full border-solid divide-slate-700 flex justify-center gap-4",
   variants: {
 
   }

@@ -27,7 +27,7 @@ export default function Home() {
   });
 
   const handleInput = useCallback((e) => {
-    if (inputText.length > 5) {
+    if (e.target.value.length > 4) {
       alert('less 5 letters, please');
       return
     }

@@ -8,17 +8,31 @@ import { tv } from 'tailwind-variants'
 const inter = Inter({ subsets: ['latin'] })
 
 const center = tv({
-  base: 'container mx-auto text-center'
+  base: 'container mx-auto text-center block'
 });
 
 export default function Home() {
   const [count, setCount] = useState(1);
+  const [isShow, setIsShow] = useState(true);
+  const [inputText, setInputText] = useState('');
 
   const handleClick = useCallback(() => {
     if (count < 10) {
       setCount(count => count + 1);
     }
   }, [count]);
+
+  const handleDisplay = useCallback(() => {
+    setIsShow(isShow => !isShow);
+  });
+
+  const handleInput = useCallback((e) => {
+    if (inputText.length > 5) {
+      alert('less 5 letters, please');
+      return
+    }
+    setInputText(e.target.value);
+  });
 
   useEffect(() => {
     // mount時の処理
@@ -36,10 +50,14 @@ export default function Home() {
         <title>Create Next App!</title>
       </Head>
       <Header />
-      <h1 className={center()}>{count}</h1>
+      {isShow ? <h1 className={center()}>{count}</h1> : null }
       <p className={center()}>
         <button onClick={handleClick}>btn</button>
       </p>
+      <p className={center()}>
+        <button onClick={handleDisplay}>{isShow ? '非表示' : '表示'}</button>
+      </p>
+      <input type='text' className={`${center()} w-52`} value={inputText} onChange={handleInput} />
       <Main page={'index'} />
     </div>
   )

@@ -1,9 +1,11 @@
 import Head from "next/head";
-import { Inter, Newsreader } from "next/font/google";
+import { Inter } from "next/font/google";
 import { Main } from "@/components/Main";
 import { Header } from "@/components/Header";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect } from "react";
 import { tv } from "tailwind-variants";
+import { useCounter } from "@/hooks/useCounter";
+import { useInput } from "@/hooks/useInput";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,38 +14,8 @@ const center = tv({
 });
 
 export default function Home() {
-  const [count, setCount] = useState(1);
-  const [isShow, setIsShow] = useState(true);
-  const [inputText, setInputText] = useState("");
-  const [array, setArray] = useState([]);
-
-  const handleClick = useCallback(() => {
-    if (count < 10) {
-      setCount((count) => count + 1);
-    }
-  }, [count]);
-
-  const handleDisplay = useCallback(() => {
-    setIsShow((isShow) => !isShow);
-  }, []);
-
-  const handleInput = useCallback((e) => {
-    if (e.target.value.length > 4) {
-      alert("less 5 letters, please");
-      return;
-    }
-    setInputText(e.target.value);
-  }, []);
-
-  const handleAdd = useCallback(() => {
-    setArray((prevArray) => {
-      if (prevArray.some((item) => item === inputText)) {
-        alert("this word is already used");
-        return prevArray; //しまぶーさんは、なぜここにさらっとprevArrayを入れるのか？　入れないとエラーがループ？してしまう。
-      }
-      return [...prevArray, inputText];
-    });
-  }, [inputText]);
+  const { count, isShow, handleClick, handleDisplay } = useCounter();
+  const { inputText, array, handleInput, handleAdd } = useInput();
 
   useEffect(() => {
     // mount時の処理

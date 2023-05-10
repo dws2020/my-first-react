@@ -4,8 +4,6 @@ import { Main } from "@/components/Main";
 import { Header } from "@/components/Header";
 import { useEffect } from "react";
 import { tv } from "tailwind-variants";
-import { useCounter } from "@/hooks/useCounter";
-import { useInput } from "@/hooks/useInput";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,9 +11,8 @@ const center = tv({
   base: "container mx-auto text-center block",
 });
 
-export default function Home() {
-  const { count, isShow, handleClick, handleDisplay } = useCounter();
-  const { inputText, array, handleInput, handleAdd } = useInput();
+export default function Home(props) {
+  const { count, isShow, handleClick, handleDisplay, inputText, array, handleInput, handleAdd } = props;
 
   useEffect(() => {
     // mount時の処理

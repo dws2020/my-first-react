@@ -2,8 +2,6 @@ import Head from "next/head";
 import { Inter } from "next/font/google";
 import { Main } from "@/components/Main";
 import { Header } from "@/components/Header";
-import { useCounter } from "@/hooks/useCounter";
-import { useInput } from "@/hooks/useInput";
 import { tv } from "tailwind-variants";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -12,9 +10,8 @@ const center = tv({
   base: "container mx-auto text-center block",
 });
 
-export default function About() {
-  const { count, isShow, handleClick, handleDisplay } = useCounter();
-  const { inputText, array, handleInput, handleAdd } = useInput();
+export default function About(props) {
+  const { count, isShow, handleClick, handleDisplay, inputText, array, handleInput, handleAdd } = props;
 
   return (
     <>

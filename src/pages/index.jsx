@@ -10,6 +10,12 @@ const inter = Inter({ subsets: ["latin"] });
 const center = tv({
   base: "container mx-auto text-center block",
 });
+const button = tv({
+  base: 'bg-amber-300 hover:bg-amber-500 ',
+  variants: {
+
+  }
+})
 
 export default function Home(props) {
   const { count, isShow, handleClick, handleDisplay, inputText, array, handleInput, handleAdd } = props;
@@ -51,6 +57,7 @@ export default function Home(props) {
           return <li key={li}>{li}</li>;
         })}
       </ul>
+      <button className="button({sato: 'myu'})">MMM</button>
       <Main page={"index"} />
     </div>
   );

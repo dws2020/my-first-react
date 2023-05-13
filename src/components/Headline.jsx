@@ -9,6 +9,10 @@ export function Headline(props) {
         Page Get started by editing&nbsp;
         {props.children}
       </p>
+      <p>
+        アイテムの数は{props.items.length}個です.
+      </p>
+      <button onClick={props.handleReduce}>REDUCE</button>
     </div>
   )
 }
